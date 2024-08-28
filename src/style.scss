@@ -1,29 +1,39 @@
 // margin top
 @for $i from 0 through 20 {
-    .mt-#{$i} {
-      margin-top: (4 * $i) + px !important;
-    }
-    .mr-#{$i} {
-      margin-right: (4 * $i) + px !important;
-    }
-    .mb-#{$i} {
-      margin-bottom: (4 * $i) + px !important;
-    }
-    .ml-#{$i} {
-      margin-left: (4 * $i) + px !important;
-    }
-    .my-#{$i} {
-      margin-block: (4 * $i) + px !important;
-    }
-    .mx-#{$i} {
-      margin-inline: (4 * $i) + px !important;
-    }
-    .ts-#{$i} {
-      font-size: (4 * $i) + px !important;
-    }
+  .mt-#{$i} {
+    margin-top: (4 * $i) + px !important;
+  }
+
+  .mr-#{$i} {
+    margin-right: (4 * $i) + px !important;
+  }
+
+  .mb-#{$i} {
+    margin-bottom: (4 * $i) + px !important;
+  }
+
+  .ml-#{$i} {
+    margin-left: (4 * $i) + px !important;
+  }
+
+  .my-#{$i} {
+    margin-block: (4 * $i) + px !important;
+  }
+
+  .mx-#{$i} {
+    margin-inline: (4 * $i) + px !important;
+  }
+
+  .ts-#{$i} {
+    font-size: (4 * $i) + px !important;
+  }
 }
 
 $color-map: (
+  "dark": #080808,
+  "darkLight": #17181e,
+  "light": #f5f7fa,
+  'orange':#f7a600,
   "red": #ff0000,
   "green": #00ff00,
   "blue": #0000ff,
@@ -36,42 +46,65 @@ $color-map: (
   @if not $hex-color {
     $hex-color: $color; // Giữ nguyên nếu không phải màu được định nghĩa sẵn
   }
+
   .tc-#{"#{$color}"} {
-    color: $hex-color; 
-  }
-  .btn-outline-#{"#{$color}"} {
-    color: $hex-color !important; 
-    border: 1px solid $hex-color !important;
-    background-color: unset !important;
-  }
+ color: $hex-color !important;
+}
+
+.bgc-#{"#{$color}"} {
+ background-color: $hex-color !important;
+}
+
+.btn-outline-#{"#{$color}"} {
+ color: $hex-color !important;
+border: 1px solid $hex-color !important;
+background-color: unset !important;
+}
 }
 
 // Sử dụng mixin với các tên màu cụ thể
-@include auto-color(red); 
-@include auto-color(green); 
-@include auto-color(blue); 
+@include auto-color(red);
+@include auto-color(green);
+@include auto-color(blue);
 @include auto-color(white);
+@include auto-color(orange);
+@include auto-color(dark);
+@include auto-color(darkLight);
+@include auto-color(light);
 
 
 @mixin auto-justify($justify) {
-    .j-#{"#{$justify}"} {
-        display: flex;
-        justify-content:$justify
-    }
+  .j-#{"#{$justify}"} {
+ display: flex;
+  justify-content: $justify
 }
+}
+
 @mixin auto-align($align) {
-    .a-#{"#{$align}"} {
-        display: flex;
-        align-content:$align
-    }
+  .a-#{"#{$align}"} {
+ display: flex;
+  align-content: $align
 }
-@include auto-justify(center); 
-@include auto-justify(start); 
-@include auto-justify(end); 
-@include auto-justify(left); 
-@include auto-justify(right); 
-@include auto-align(center); 
-@include auto-align(start); 
-@include auto-align(end); 
-@include auto-align(left); 
-@include auto-align(right); 
+}
+
+@include auto-justify(center);
+@include auto-justify(start);
+@include auto-justify(end);
+@include auto-justify(left);
+@include auto-justify(right);
+@include auto-align(center);
+@include auto-align(start);
+@include auto-align(end);
+@include auto-align(left);
+@include auto-align(right);
+
+body {
+  background-color: #f5f5f5;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+// setting common
+.el-dialog {
+  border-radius: 8px !important;
+  padding: 16px !important;
+}

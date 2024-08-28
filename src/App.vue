@@ -1,14 +1,17 @@
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
+  import { useRoute } from 'vue-router'
+  import { computed } from 'vue';
+  const route = useRoute()
+  const layout = computed(() => {
+    console.log(route?.meta?.layout);
 
-const route = useRoute()
-const layout= computed(()=>{
-  if (route.path === '/' ) {
-    return 'layout-full'
-  }
-  // if (route.meta.layout === 'full') return 'layout-full'
-  // return `layout-${this.contentLayoutType}`
-})
+    if (!route?.meta?.layout) {
+      return 'LayoutDefault'
+    }
+    else {
+      return route?.meta?.layout
+    }
+  })
 </script>
 
 <template>
@@ -18,4 +21,3 @@ const layout= computed(()=>{
     </component>
   </div>
 </template>
-
